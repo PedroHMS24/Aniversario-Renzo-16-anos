@@ -1,27 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Aniversário, Renzo — 16 Anos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
+  <!-- Trilha / botão de som -->
+  <button id="soundToggle" class="sound-toggle" aria-label="Ativar som" title="Ativar/desativar som">
+    <span class="sound-icon">♪</span>
+  </button>
 
-<div class="background"></div>
+  <!-- TELA INICIAL: começar (necessário p/ liberar áudio) -->
+  <section id="startScreen" class="screen start-screen">
+    <div class="start-inner">
+      <p class="start-kicker">UMA PRODUÇÃO ESPECIAL</p>
+      <h1 class="start-title">RENZO</h1>
+      <p class="start-sub">16 ANOS</p>
+      <button id="startBtn" class="start-btn">▶ INICIAR EXPERIÊNCIA</button>
+      <p class="start-hint">Ative o som para a experiência completa</p>
+    </div>
+  </section>
 
-<div class="overlay"></div>
+  <!-- CONTAGEM REGRESSIVA -->
+  <section id="countdown" class="screen countdown-screen hidden">
+    <div class="film-grain"></div>
+    <div class="letterbox top"></div>
+    <div class="letterbox bottom"></div>
+    <div class="count-wrap">
+      <div class="count-ring">
+        <svg viewBox="0 0 120 120">
+          <circle class="ring-bg" cx="60" cy="60" r="54" />
+          <circle id="ringProgress" class="ring-progress" cx="60" cy="60" r="54" />
+        </svg>
+        <div id="countNumber" class="count-number">5</div>
+      </div>
+      <p class="count-label">A HISTÓRIA ESTÁ PRESTES A COMEÇAR...</p>
+    </div>
+  </section>
 
-<section class="hero">
+  <!-- REVELAÇÃO DO TÍTULO -->
+  <section id="reveal" class="screen reveal-screen hidden">
+    <div class="film-grain"></div>
+    <div class="reveal-inner">
+      <p class="reveal-kicker">FELIZ ANIVERSÁRIO</p>
+      <h1 class="reveal-name">RENZO</h1>
+      <div class="reveal-age">
+        <span class="age-num">16</span>
+        <span class="age-word">ANOS</span>
+      </div>
+      <p class="reveal-tag">Uma jornada de conquistas, risadas e momentos inesquecíveis.</p>
+      <button id="exploreBtn" class="explore-btn">EXPLORAR A JORNADA ↓</button>
+    </div>
+  </section>
 
-    <h1>Feliz Aniversário</h1>
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="content" class="content hidden">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-text">
+        <p class="hero-kicker">A HISTÓRIA DE UM CARA INCRÍVEL</p>
+        <h1 class="hero-title">RENZO</h1>
+        <p class="hero-sub">16 ANOS • 2010 — 2026</p>
+      </div>
+      <div class="scroll-cue">↓</div>
+    </header>
 
-    <h2>RENZO</h2>
+    <!-- FOTOS - ÚLTIMOS 6 ANOS -->
+    <section class="section photos-section" id="fotos">
+      <div class="section-head">
+        <span class="section-index">01</span>
+        <h2 class="section-title">OS ÚLTIMOS 6 ANOS</h2>
+        <p class="section-desc">Cada ano, um novo capítulo. Passe por essa linha do tempo.</p>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
 
-    <p>16 anos</p>
+    <!-- CONQUISTAS -->
+    <section class="section achievements-section" id="conquistas">
+      <div class="section-head">
+        <span class="section-index">02</span>
+        <h2 class="section-title">CONQUISTAS</h2>
+        <p class="section-desc">Momentos que marcaram essa trajetória.</p>
+      </div>
+      <div class="achievements" id="achievements"></div>
+    </section>
 
-    <button>Começar História</button>
+    <!-- FRASE / MENSAGEM -->
+    <section class="section message-section" id="mensagem">
+      <div class="film-grain"></div>
+      <div class="message-inner">
+        <p class="message-quote">"Que os próximos capítulos sejam ainda mais épicos que os anteriores."</p>
+        <p class="message-body">
+          Renzo, 16 anos é só o começo do melhor filme da sua vida. Que venham mais
+          aventuras, sonhos realizados e memórias que valem a pena guardar. Hoje é o seu dia —
+          aproveite cada segundo dele. 🎬
+        </p>
+        <p class="message-sign">— Com carinho, seus amigos</p>
+      </div>
+    </section>
 
-</section>
+    <!-- CRÉDITOS FINAIS -->
+    <footer class="credits" id="creditos">
+      <div class="credits-roll">
+        <p class="credits-big">FELIZ ANIVERSÁRIO</p>
+        <p class="credits-name">RENZO</p>
+        <p class="credits-line">DIREÇÃO ......... A VIDA</p>
+        <p class="credits-line">PROTAGONISTA ......... RENZO</p>
+        <p class="credits-line">GÊNERO ......... AVENTURA & COMÉDIA</p>
+        <p class="credits-line">CLASSIFICAÇÃO ......... 16 ANOS</p>
+        <p class="credits-line">PRÓXIMO EPISÓDIO ......... EM BREVE</p>
+        <button id="replayBtn" class="replay-btn">↺ ASSISTIR NOVAMENTE</button>
+      </div>
+    </footer>
+  </main>
 
-<div class="carousel">
-
-</div>
-
-<div class="bottomMenu">
-
-</div>
-
+  <script src="script.js"></script>
 </body>
+</html>
