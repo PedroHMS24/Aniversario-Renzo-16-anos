@@ -3,34 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feliz Aniversário, Renzo — 16 Anos</title>
+  <title>Renzo — 16 Anos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Trilha / botão de som -->
   <button id="soundToggle" class="sound-toggle" aria-label="Ativar som" title="Ativar/desativar som">
     <span class="sound-icon">♪</span>
   </button>
 
-  <!-- TELA INICIAL: começar (necessário p/ liberar áudio) -->
+  <!-- TELA INICIAL (libera o áudio) -->
   <section id="startScreen" class="screen start-screen">
     <div class="start-inner">
-      <p class="start-kicker">UMA HOMENAGEM ESPECIAL</p>
-      <h1 class="start-title">RENZO</h1>
+      <h1 class="netflix-logo start-logo">RENZO</h1>
       <p class="start-sub">16 ANOS</p>
-      <button id="startBtn" class="start-btn">▶ INICIAR EXPERIÊNCIA</button>
+      <button id="startBtn" class="nf-btn nf-btn-play">▶ Iniciar</button>
       <p class="start-hint">Ative o som para a experiência completa</p>
     </div>
   </section>
 
   <!-- CONTAGEM REGRESSIVA -->
   <section id="countdown" class="screen countdown-screen hidden">
-    <div class="film-grain"></div>
-    <div class="letterbox top"></div>
-    <div class="letterbox bottom"></div>
     <div class="count-wrap">
       <div class="count-ring">
         <svg viewBox="0 0 120 120">
@@ -39,85 +34,92 @@
         </svg>
         <div id="countNumber" class="count-number">5</div>
       </div>
-      <p class="count-label">A HISTÓRIA ESTÁ PRESTES A COMEÇAR...</p>
+      <p class="count-label">CARREGANDO...</p>
     </div>
   </section>
 
-  <!-- REVELAÇÃO DO TÍTULO -->
+  <!-- REVELAÇÃO (estilo "tudum") -->
   <section id="reveal" class="screen reveal-screen hidden">
-    <div class="film-grain"></div>
     <div class="reveal-inner">
-      <p class="reveal-kicker">FELIZ ANIVERSÁRIO</p>
-      <h1 class="reveal-name">RENZO</h1>
-      <div class="reveal-age">
-        <span class="age-num">16</span>
-        <span class="age-word">ANOS</span>
-      </div>
-      <p class="reveal-tag">Uma trajetória marcada por conquistas, aprendizado e momentos que ficam.</p>
-      <button id="exploreBtn" class="explore-btn">EXPLORAR A JORNADA ↓</button>
+      <h1 class="netflix-logo reveal-name">RENZO</h1>
+      <p class="reveal-kicker">FELIZ ANIVERSÁRIO — 16 ANOS</p>
     </div>
   </section>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main id="content" class="content hidden">
-    <!-- HERO -->
-    <header class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-text">
-        <p class="hero-kicker">UMA TRAJETÓRIA QUE MERECE SER CELEBRADA</p>
-        <h1 class="hero-title">RENZO</h1>
-        <p class="hero-sub">16 ANOS • 2010 — 2026</p>
+  <!-- APLICATIVO ESTILO NETFLIX -->
+  <div id="app" class="app hidden">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar">
+      <div class="nav-left">
+        <span class="netflix-logo nav-logo">RENZO</span>
+        <ul class="nav-links">
+          <li data-target="banner" class="active">Início</li>
+          <li data-target="fotos">Fotos</li>
+          <li data-target="conquistas">Conquistas</li>
+          <li data-target="mensagem">Mensagem</li>
+        </ul>
       </div>
-      <div class="scroll-cue">↓</div>
+    </nav>
+
+    <!-- BANNER / BILLBOARD -->
+    <header id="banner" class="banner">
+      <div class="banner-fade-bottom"></div>
+      <div class="banner-content">
+        <p class="banner-badge">ESPECIAL DE ANIVERSÁRIO</p>
+        <h1 class="banner-title">RENZO</h1>
+        <p class="banner-meta"><span class="rank">16 Anos</span> • 2010 — 2026 • Aventura • Comédia • Amizade</p>
+        <p class="banner-desc">
+          A história de um garoto incrível contada em fotos, conquistas e memórias.
+          Escolha uma categoria abaixo e reviva os melhores momentos dos últimos anos.
+        </p>
+        <div class="banner-btns">
+          <button class="nf-btn nf-btn-play" data-target="fotos">▶ Ver Fotos</button>
+          <button class="nf-btn nf-btn-info" data-target="conquistas">＋ Conquistas</button>
+        </div>
+      </div>
     </header>
 
-    <!-- FOTOS - ÚLTIMOS 6 ANOS -->
-    <section class="section photos-section" id="fotos">
-      <div class="section-head">
-        <span class="section-index">01</span>
-        <h2 class="section-title">OS ÚLTIMOS 6 ANOS</h2>
-        <p class="section-desc">Uma linha do tempo dos momentos que marcaram cada ano.</p>
-      </div>
-      <div class="timeline" id="timeline"></div>
-    </section>
+    <main class="rows">
+      <!-- FOTOS COM 3 ABAS -->
+      <section class="row-section" id="fotos">
+        <h2 class="row-title">Fotos</h2>
+        <div class="tabs" id="photoTabs"></div>
+        <div class="row-wrap">
+          <button class="row-arrow left" data-row="photoRow" aria-label="Anterior">‹</button>
+          <div class="row" id="photoRow"></div>
+          <button class="row-arrow right" data-row="photoRow" aria-label="Próximo">›</button>
+        </div>
+      </section>
 
-    <!-- CONQUISTAS -->
-    <section class="section achievements-section" id="conquistas">
-      <div class="section-head">
-        <span class="section-index">02</span>
-        <h2 class="section-title">CONQUISTAS</h2>
-        <p class="section-desc">Momentos que marcaram essa trajetória.</p>
-      </div>
-      <div class="achievements" id="achievements"></div>
-    </section>
+      <!-- CONQUISTAS -->
+      <section class="row-section" id="conquistas">
+        <h2 class="row-title">Conquistas</h2>
+        <div class="row-wrap">
+          <button class="row-arrow left" data-row="achRow" aria-label="Anterior">‹</button>
+          <div class="row" id="achRow"></div>
+          <button class="row-arrow right" data-row="achRow" aria-label="Próximo">›</button>
+        </div>
+      </section>
 
-    <!-- FRASE / MENSAGEM -->
-    <section class="section message-section" id="mensagem">
-      <div class="film-grain"></div>
-      <div class="message-inner">
-        <p class="message-quote">"Que os próximos anos sejam ainda maiores do que tudo o que já conquistou."</p>
-        <p class="message-body">
-          Renzo, os 16 anos marcam o início de uma nova fase. Que ela venha acompanhada
-          de novos objetivos, boas escolhas e memórias que valham a pena guardar.
-          Parabéns por tudo o que você já se tornou.
-        </p>
-        <p class="message-sign">— Com admiração, seus amigos</p>
-      </div>
-    </section>
+      <!-- MENSAGEM -->
+      <section class="message-section" id="mensagem">
+        <div class="message-inner">
+          <p class="message-quote">"Que os próximos anos sejam ainda maiores do que tudo o que já conquistou."</p>
+          <p class="message-body">
+            Renzo, os 16 anos marcam o início de uma nova fase. Que ela venha acompanhada
+            de novos objetivos, boas escolhas e memórias que valham a pena guardar.
+            Parabéns por tudo o que você já se tornou.
+          </p>
+          <p class="message-sign">— Com admiração, seus amigos</p>
+          <button id="replayBtn" class="nf-btn nf-btn-info">↺ Rever do início</button>
+        </div>
+      </section>
 
-    <!-- CRÉDITOS FINAIS -->
-    <footer class="credits" id="creditos">
-      <div class="credits-roll">
-        <p class="credits-big">FELIZ ANIVERSÁRIO</p>
-        <p class="credits-name">RENZO</p>
-        <p class="credits-line">HOMENAGEADO ......... RENZO</p>
-        <p class="credits-line">OCASIÃO ......... 16 ANOS</p>
-        <p class="credits-line">DATA ......... 2026</p>
-        <p class="credits-line">PRÓXIMO CAPÍTULO ......... A CONSTRUIR</p>
-        <button id="replayBtn" class="replay-btn">↺ REVER DO INÍCIO</button>
-      </div>
-    </footer>
-  </main>
+      <footer class="footer">
+        <p>Renzo • 16 Anos • 2026</p>
+      </footer>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
