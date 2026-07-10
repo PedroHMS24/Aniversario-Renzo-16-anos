@@ -6,7 +6,7 @@
   <title>Renzo — 16 Anos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -18,7 +18,7 @@
   <section id="startScreen" class="screen start-screen">
     <div class="start-inner">
       <h1 class="netflix-logo start-logo">RENZO</h1>
-      <p class="start-sub">16 ANOS</p>
+      <p class="start-sub"><span class="rule"></span>16 ANOS<span class="rule"></span></p>
       <button id="startBtn" class="nf-btn nf-btn-play">▶ Iniciar</button>
       <p class="start-hint">Ative o som para a experiência completa</p>
     </div>
@@ -34,7 +34,7 @@
         </svg>
         <div id="countNumber" class="count-number">5</div>
       </div>
-      <p class="count-label">CARREGANDO...</p>
+      <p class="count-label">A EXPERIÊNCIA COMEÇA EM</p>
     </div>
   </section>
 
@@ -42,7 +42,7 @@
   <section id="reveal" class="screen reveal-screen hidden">
     <div class="reveal-inner">
       <h1 class="netflix-logo reveal-name">RENZO</h1>
-      <p class="reveal-kicker">FELIZ ANIVERSÁRIO — 16 ANOS</p>
+      <p class="reveal-kicker"><span class="rule"></span>FELIZ ANIVERSÁRIO · 16 ANOS<span class="rule"></span></p>
     </div>
   </section>
 
@@ -67,14 +67,14 @@
       <div class="banner-content">
         <p class="banner-badge">ESPECIAL DE ANIVERSÁRIO</p>
         <h1 class="banner-title">RENZO</h1>
-        <p class="banner-meta"><span class="rank">16 Anos</span> • 2010 — 2026 • Aventura • Comédia • Amizade</p>
+        <p class="banner-meta"><span class="rank">16 Anos</span><span class="dot">·</span>2010 — 2026<span class="dot">·</span>Aventura<span class="dot">·</span>Comédia<span class="dot">·</span>Amizade</p>
         <p class="banner-desc">
           A história de um garoto incrível contada em fotos, conquistas e memórias.
           Escolha uma categoria abaixo e reviva os melhores momentos dos últimos anos.
         </p>
         <div class="banner-btns">
           <button class="nf-btn nf-btn-play" data-target="fotos">▶ Ver Fotos</button>
-          <button class="nf-btn nf-btn-info" data-target="conquistas">＋ Conquistas</button>
+          <button class="nf-btn nf-btn-info" data-target="conquistas">Conquistas</button>
         </div>
       </div>
     </header>
@@ -82,6 +82,7 @@
     <main class="rows">
       <!-- FOTOS COM 3 ABAS -->
       <section class="row-section" id="fotos">
+        <p class="row-kicker">Memórias</p>
         <h2 class="row-title">Fotos</h2>
         <div class="tabs" id="photoTabs"></div>
         <div class="row-wrap">
@@ -93,6 +94,7 @@
 
       <!-- CONQUISTAS -->
       <section class="row-section" id="conquistas">
+        <p class="row-kicker">Trajetória</p>
         <h2 class="row-title">Conquistas</h2>
         <div class="row-wrap">
           <button class="row-arrow left" data-row="achRow" aria-label="Anterior">‹</button>
@@ -104,19 +106,21 @@
       <!-- MENSAGEM -->
       <section class="message-section" id="mensagem">
         <div class="message-inner">
-          <p class="message-quote">"Que os próximos anos sejam ainda maiores do que tudo o que já conquistou."</p>
+          <span class="message-mark">“</span>
+          <p class="message-quote">Que os próximos anos sejam ainda maiores do que tudo o que já conquistou.</p>
           <p class="message-body">
             Renzo, os 16 anos marcam o início de uma nova fase. Que ela venha acompanhada
             de novos objetivos, boas escolhas e memórias que valham a pena guardar.
             Parabéns por tudo o que você já se tornou.
           </p>
-          <p class="message-sign">— Com admiração, seus amigos</p>
+          <div class="message-rule"></div>
+          <p class="message-sign">Com admiração, seus amigos</p>
           <button id="replayBtn" class="nf-btn nf-btn-info">↺ Rever do início</button>
         </div>
       </section>
 
       <footer class="footer">
-        <p>Renzo • 16 Anos • 2026</p>
+        <p>RENZO<span class="dot">·</span>16 ANOS<span class="dot">·</span>2026</p>
       </footer>
     </main>
   </div>

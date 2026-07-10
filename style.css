@@ -2,9 +2,12 @@
   --bg: #141414;
   --red: #e50914;
   --red-dark: #b0060f;
+  --gold: #d4af37;
+  --gold-soft: rgba(212, 175, 55, 0.55);
   --text: #ffffff;
   --muted: #b3b3b3;
   --card: #2a2a2a;
+  --serif: "Cormorant Garamond", Georgia, serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,33 +67,46 @@ body {
 .start-sub {
   font-family: "Bebas Neue";
   letter-spacing: 14px;
+  text-indent: 14px;
   font-size: clamp(1.1rem, 3vw, 1.8rem);
-  color: var(--text);
-  margin: -0.5rem 0 2rem;
+  color: var(--gold);
+  margin: -0.3rem 0 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
 }
-.start-hint { margin-top: 1.2rem; color: var(--muted); font-size: 0.8rem; }
+.rule {
+  display: inline-block;
+  width: clamp(32px, 8vw, 70px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+}
+.start-hint { margin-top: 1.4rem; color: #8a8a8a; font-size: 0.74rem; letter-spacing: 2px; text-transform: uppercase; }
 
 /* ---------- BOTÕES NETFLIX ---------- */
 .nf-btn {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  padding: 0.75rem 1.8rem;
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 0.8rem 2.1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 .nf-btn-play {
   background: #fff;
   color: #000;
 }
-.nf-btn-play:hover { background: rgba(255, 255, 255, 0.75); }
+.nf-btn-play:hover { background: #e6e6e6; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
 .nf-btn-info {
-  background: rgba(109, 109, 110, 0.7);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.45);
   color: #fff;
 }
-.nf-btn-info:hover { background: rgba(109, 109, 110, 0.5); }
+.nf-btn-info:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
 
 /* ---------- COUNTDOWN ---------- */
 .count-ring { position: relative; width: 240px; height: 240px; margin: 0 auto; }
@@ -122,7 +138,7 @@ body {
   40% { transform: scale(1); opacity: 1; filter: blur(0); }
   100% { transform: scale(1); opacity: 1; }
 }
-.count-label { margin-top: 2rem; letter-spacing: 6px; font-size: 0.8rem; color: var(--muted); }
+.count-label { margin-top: 2.2rem; letter-spacing: 7px; text-indent: 7px; font-size: 0.72rem; color: #8a8a8a; text-transform: uppercase; }
 
 /* ---------- REVEAL (tudum) ---------- */
 .reveal-name {
@@ -137,10 +153,15 @@ body {
 .reveal-kicker {
   font-family: "Bebas Neue";
   letter-spacing: 8px;
-  font-size: clamp(1rem, 3vw, 1.8rem);
-  color: var(--muted);
+  text-indent: 8px;
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  color: var(--gold);
   opacity: 0;
   animation: fadeIn 1s ease 1.4s forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
 }
 
 /* ---------- APP / NAVBAR ---------- */
@@ -190,11 +211,20 @@ body {
 }
 .banner-content { position: relative; z-index: 2; max-width: 640px; }
 .banner-badge {
-  color: var(--red);
-  font-weight: 700;
-  letter-spacing: 4px;
-  font-size: 0.85rem;
-  margin-bottom: 0.8rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 5px;
+  font-size: 0.78rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.banner-badge::before {
+  content: "";
+  width: 44px;
+  height: 1px;
+  background: var(--gold-soft);
 }
 .banner-title {
   font-family: "Bebas Neue";
@@ -203,8 +233,9 @@ body {
   line-height: 0.95;
   text-shadow: 0 4px 20px rgba(0,0,0,0.7);
 }
-.banner-meta { color: #fff; font-size: 0.95rem; margin: 0.8rem 0 1rem; }
-.banner-meta .rank { color: #46d369; font-weight: 600; }
+.banner-meta { color: #d8d8d8; font-size: 0.92rem; margin: 1rem 0 1.1rem; letter-spacing: 0.5px; }
+.banner-meta .rank { color: var(--gold); font-weight: 600; }
+.dot { color: rgba(255,255,255,0.35); margin: 0 0.55rem; }
 .banner-desc {
   color: #e5e5e5;
   font-weight: 300;
@@ -219,28 +250,39 @@ body {
 /* ---------- ROWS ---------- */
 .rows { position: relative; z-index: 3; margin-top: -6vh; padding-bottom: 4rem; }
 .row-section { padding: 2rem 0 2rem 4vw; }
-.row-title {
-  font-size: 1.5rem;
+.row-kicker {
+  color: var(--gold);
+  font-size: 0.7rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.row-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.1rem;
 }
 .tabs { display: flex; gap: 0.6rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
 .tab-btn {
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.22);
   color: var(--muted);
-  padding: 0.5rem 1.3rem;
+  padding: 0.55rem 1.5rem;
   border-radius: 30px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
   font-family: "Montserrat";
   cursor: pointer;
   transition: all 0.25s ease;
 }
-.tab-btn:hover { color: #fff; border-color: #fff; }
+.tab-btn:hover { color: #fff; border-color: rgba(255,255,255,0.6); }
 .tab-btn.active {
-  background: var(--red);
-  border-color: var(--red);
-  color: #fff;
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--gold);
+  color: var(--gold);
 }
 
 .row-wrap { position: relative; }
@@ -264,14 +306,16 @@ body {
   border-radius: 6px;
   overflow: hidden;
   background: var(--card);
+  border: 1px solid rgba(255,255,255,0.06);
   cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .card:hover {
   transform: scale(1.14);
   z-index: 20;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.8);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.85);
 }
 .card.no-img {
   display: flex;
@@ -283,10 +327,11 @@ body {
 }
 .card.no-img::after {
   content: attr(data-label);
-  font-family: "Bebas Neue";
-  font-size: 2rem;
-  letter-spacing: 2px;
-  color: rgba(255,255,255,0.35);
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.9rem;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.4);
 }
 .card-info {
   position: absolute;
@@ -314,15 +359,25 @@ body {
   flex-direction: column;
   justify-content: flex-end;
 }
-.card.ach:hover { transform: scale(1.08); border-color: var(--red); }
+.card.ach:hover { transform: scale(1.08); border-color: var(--gold-soft); box-shadow: 0 20px 48px rgba(0,0,0,0.85); }
 .ach-num {
-  font-family: "Bebas Neue";
-  font-size: 3.5rem;
-  color: var(--red);
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 3.2rem;
+  color: var(--gold);
   line-height: 1;
   margin-bottom: auto;
 }
-.ach-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; }
+.ach-title { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 0.45rem; padding-top: 0.9rem; position: relative; }
+.ach-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 1px;
+  background: var(--gold-soft);
+}
 .ach-text { color: var(--muted); font-size: 0.85rem; font-weight: 300; line-height: 1.5; }
 
 /* ---------- ROW ARROWS ---------- */
@@ -353,24 +408,41 @@ body {
   background: radial-gradient(circle at 50% 50%, #1c1c1c 0%, #141414 80%);
 }
 .message-inner { max-width: 760px; margin: 0 auto; }
-.message-quote {
-  font-size: clamp(1.4rem, 4vw, 2.2rem);
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.4;
-  margin-bottom: 1.6rem;
+.message-mark {
+  display: block;
+  font-family: var(--serif);
+  font-size: 5rem;
+  line-height: 0.5;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
 }
-.message-body { color: var(--muted); font-weight: 300; line-height: 1.9; font-size: 1.05rem; }
-.message-sign { margin-top: 1.6rem; color: #fff; letter-spacing: 1px; font-style: italic; }
+.message-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 1.8rem;
+}
+.message-body { color: var(--muted); font-weight: 300; line-height: 2; font-size: 1.02rem; }
+.message-rule {
+  width: 70px;
+  height: 1px;
+  background: var(--gold-soft);
+  margin: 2rem auto 0;
+}
+.message-sign { margin-top: 1.2rem; color: #e0e0e0; letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase; }
 #replayBtn { margin-top: 2.2rem; }
 
 /* ---------- FOOTER ---------- */
 .footer {
   text-align: center;
-  padding: 2.5rem 1rem;
-  color: #666;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
+  padding: 2.8rem 1rem;
+  color: #6b6b6b;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 /* ---------- ANIMS ---------- */
