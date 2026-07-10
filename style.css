@@ -1,12 +1,12 @@
 :root {
-  --bg: #141414;
-  --red: #e50914;
-  --red-dark: #b0060f;
-  --gold: #d4af37;
-  --gold-soft: rgba(212, 175, 55, 0.55);
+  --bg: #070b16;
+  --red: #2e7bff;
+  --red-dark: #1b4fd8;
+  --gold: #5ad0ff;
+  --gold-soft: rgba(90, 208, 255, 0.5);
   --text: #ffffff;
-  --muted: #b3b3b3;
-  --card: #2a2a2a;
+  --muted: #9fb0cc;
+  --card: #16213a;
   --serif: "Cormorant Garamond", Georgia, serif;
 }
 
@@ -15,7 +15,10 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse 90% 60% at 15% 0%, rgba(24, 49, 100, 0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 100%, rgba(16, 40, 90, 0.4) 0%, transparent 60%),
+    var(--bg);
   color: var(--text);
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
@@ -25,9 +28,12 @@ body {
 
 .netflix-logo {
   font-family: "Bebas Neue", sans-serif;
-  color: var(--red);
+  background: linear-gradient(180deg, #b8dcff 0%, #4f9bff 55%, #1f5fe0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   letter-spacing: 2px;
-  text-shadow: 0 0 24px rgba(229, 9, 20, 0.45);
+  filter: drop-shadow(0 0 26px rgba(46, 123, 255, 0.55));
 }
 
 /* ---------- SCREENS ---------- */
@@ -38,7 +44,9 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #000;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 42%, rgba(20, 45, 100, 0.45) 0%, transparent 65%),
+    #02040a;
 }
 
 /* ---------- SOUND TOGGLE ---------- */
@@ -58,12 +66,16 @@ body {
   backdrop-filter: blur(6px);
   transition: transform 0.25s, border-color 0.25s;
 }
-.sound-toggle:hover { transform: scale(1.1); border-color: var(--red); }
+.sound-toggle:hover { transform: scale(1.1); border-color: var(--gold); }
 .sound-toggle.muted { opacity: 0.5; }
 
 /* ---------- START ---------- */
 .start-inner { animation: fadeIn 1s ease both; }
-.start-logo { font-size: clamp(3.5rem, 14vw, 9rem); }
+.start-logo { font-size: clamp(3.5rem, 14vw, 9rem); animation: glowPulse 3.5s ease-in-out infinite; }
+@keyframes glowPulse {
+  0%, 100% { filter: drop-shadow(0 0 18px rgba(46, 123, 255, 0.4)); }
+  50% { filter: drop-shadow(0 0 40px rgba(90, 208, 255, 0.75)); }
+}
 .start-sub {
   font-family: "Bebas Neue";
   letter-spacing: 14px;
@@ -114,12 +126,12 @@ body {
 .ring-bg { fill: none; stroke: rgba(255, 255, 255, 0.1); stroke-width: 3; }
 .ring-progress {
   fill: none;
-  stroke: var(--red);
+  stroke: var(--gold);
   stroke-width: 4;
   stroke-linecap: round;
   stroke-dasharray: 339.29;
   stroke-dashoffset: 0;
-  filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.8));
+  filter: drop-shadow(0 0 10px rgba(90, 208, 255, 0.85));
   transition: stroke-dashoffset 1s linear;
 }
 .count-number {
@@ -178,7 +190,7 @@ body {
   transition: background 0.4s ease;
   background: linear-gradient(180deg, rgba(0,0,0,0.85), transparent);
 }
-.navbar.scrolled { background: #141414; box-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+.navbar.scrolled { background: rgba(7, 11, 22, 0.92); backdrop-filter: blur(10px); box-shadow: 0 2px 16px rgba(0,0,0,0.6), 0 1px 0 rgba(90,208,255,0.12); }
 .nav-left { display: flex; align-items: center; gap: 2.5rem; }
 .nav-logo { font-size: 2rem; }
 .nav-links { display: flex; gap: 1.5rem; list-style: none; }
@@ -198,7 +210,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 4vw;
-  background: linear-gradient(90deg, rgba(20,20,20,0.9) 0%, rgba(20,20,20,0.3) 60%, transparent 100%),
+  background: linear-gradient(90deg, rgba(7,11,22,0.92) 0%, rgba(7,11,22,0.35) 60%, transparent 100%),
               url("photos/hero.jpg") center/cover no-repeat;
 }
 .banner-fade-bottom {
@@ -280,9 +292,10 @@ body {
 }
 .tab-btn:hover { color: #fff; border-color: rgba(255,255,255,0.6); }
 .tab-btn.active {
-  background: rgba(212, 175, 55, 0.1);
+  background: rgba(90, 208, 255, 0.1);
   border-color: var(--gold);
   color: var(--gold);
+  box-shadow: 0 0 14px rgba(90, 208, 255, 0.2);
 }
 
 .row-wrap { position: relative; }
@@ -314,16 +327,16 @@ body {
 .card:hover {
   transform: scale(1.14);
   z-index: 20;
-  border-color: rgba(212, 175, 55, 0.35);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.85);
+  border-color: rgba(90, 208, 255, 0.4);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.85), 0 0 30px rgba(46, 123, 255, 0.25);
 }
 .card.no-img {
   display: flex;
   align-items: center;
   justify-content: center;
   background:
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 14px, transparent 14px 28px),
-    linear-gradient(160deg, #2a2a2a, #141414);
+    repeating-linear-gradient(45deg, rgba(122,180,255,0.04) 0 14px, transparent 14px 28px),
+    linear-gradient(160deg, #16213a, #070b16);
 }
 .card.no-img::after {
   content: attr(data-label);
@@ -352,14 +365,14 @@ body {
 .card.ach {
   aspect-ratio: 3 / 4;
   width: 220px;
-  background: linear-gradient(160deg, #1f1f1f, #141414);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(160deg, #141d33, #070b16);
+  border: 1px solid rgba(122,180,255,0.12);
   padding: 1.6rem 1.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
-.card.ach:hover { transform: scale(1.08); border-color: var(--gold-soft); box-shadow: 0 20px 48px rgba(0,0,0,0.85); }
+.card.ach:hover { transform: scale(1.08); border-color: var(--gold-soft); box-shadow: 0 20px 48px rgba(0,0,0,0.85), 0 0 30px rgba(46, 123, 255, 0.25); }
 .ach-num {
   font-family: var(--serif);
   font-weight: 500;
@@ -405,7 +418,7 @@ body {
 .message-section {
   padding: 5rem 4vw;
   text-align: center;
-  background: radial-gradient(circle at 50% 50%, #1c1c1c 0%, #141414 80%);
+  background: radial-gradient(circle at 50% 50%, #101a30 0%, #070b16 80%);
 }
 .message-inner { max-width: 760px; margin: 0 auto; }
 .message-mark {
@@ -455,7 +468,7 @@ body {
   .nav-links li { font-size: 0.8rem; }
   .nav-logo { font-size: 1.6rem; }
   .banner {
-    background: linear-gradient(0deg, var(--bg) 0%, rgba(20,20,20,0.4) 50%, rgba(20,20,20,0.7) 100%),
+    background: linear-gradient(0deg, var(--bg) 0%, rgba(7,11,22,0.45) 50%, rgba(7,11,22,0.75) 100%),
                 url("photos/hero.jpg") center/cover no-repeat;
     align-items: flex-end;
     padding-bottom: 12vh;
